@@ -22,7 +22,7 @@ function main() {
                             console.log('🎉 New article found : ', article.id, (new Date(itemDate.setMinutes(itemDate.getMinutes() + 2,5)).getMinutes() > new Date().getMinutes()))
                             fetchedArticles.push(article.id)
                             try {
-                                await insertToDb(combo.id, article.id, article.url, article.photo?.url, article.user?.login, article.user?.profile_url, article.user?.id, article.brand_title, article.size_title, article.title, article.price, article.service_fee, new Date());
+                                await insertToDb(combo.id, article.id, article.url, article.photo?.url, article.user?.login, article.user?.profile_url, article.user?.id, article.brand_title, article.size_title, article.title, article.price, parseInt(article.service_fee)+3, new Date());
                             } catch (err) {
                                 return err
                             }

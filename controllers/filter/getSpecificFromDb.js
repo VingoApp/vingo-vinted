@@ -2,7 +2,8 @@ const Filter = require('../../models/filter');
 
 async function getSpecificFromDb(comboId) {
     if (!comboId.length) return console.error('❌ Missing arguments');
-    let comboIdArray = comboId.split(',');
+    let comboIdArray = comboId.split(', ');
+    console.log(comboIdArray)
     try {
         const filter = await Filter.find({
             'comboId': { $in: comboIdArray}
