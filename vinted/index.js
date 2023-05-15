@@ -33,7 +33,7 @@ function main() {
             }).catch(e => {
                 return e
             })
-        }, 6000);
+        }, 20000);
     }
 }
 
