@@ -4,7 +4,7 @@
   "description": "vingo vinted api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon main.js"
+    "dev": "git pull && node main.js"
   },
   "author": "Ayumi",
   "license": "ISC",

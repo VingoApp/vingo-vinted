@@ -14,7 +14,8 @@ router.get("/combo", [passport.authenticate('jwt', { session: false }), rateLimi
     if (!comboList) return res.status(400).json({ success: false, msg: "Missing arguments" })
     const filter = await getSpecificFromDb(comboList);
     if (!filter) return res.status(400).json({ success: false, msg: "Error while fetching data from DB" })
-    res.status(200).json(filter);
+    console.log(filter)
+    return res.status(200).json(filter);
 })
 
 module.exports = router;
