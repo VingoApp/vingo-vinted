@@ -17,7 +17,8 @@ function main() {
                 articles = articles?.items;
                 if (fetchedArticles.length == 0) fetchedArticles = articles.map(article => article.id);
                 if (articles.length > 0 && fetchedArticles.length != 0) {
-                    articles.forEach(async (article) => {
+                    for (let i = 0; i < articles.length; i++) {
+                        let article = articles[i]
                         let itemDate = new Date(article.photo?.high_resolution?.timestamp * 1000);
                         if (!fetchedArticles.includes(article.id) && article.is_visible && itemDate && (new Date(itemDate.setMinutes(itemDate.getMinutes() + 2, 5)) > new Date())) {
                             console.log('🎉 New article found : ', article.id, (new Date(itemDate.setMinutes(itemDate.getMinutes() + 2, 5)).getMinutes() > new Date().getMinutes()))
@@ -30,7 +31,7 @@ function main() {
                             }
 
                         }
-                    })
+                    }
                     await sendNotifs(new_articles)
                 }
             }).catch(e => {
