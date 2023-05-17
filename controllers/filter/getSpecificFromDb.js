@@ -5,12 +5,13 @@ async function getSpecificFromDb(comboId) {
     let comboIdArray = comboId.split(', ');
     console.log(comboIdArray)
 
-    const filter = await Filter.find({
+    let filter = await Filter.find({
         'comboId': { $in: comboIdArray}
     }).sort({ expireDate: -1 }).catch(e => {
         console.log(e)
         return e
     })
+    console.log(filter)
     return filter;
 }
 
