@@ -8,6 +8,7 @@ async function getSpecificFromDb(comboId) {
     const filter = await Filter.find({
         'comboId': { $in: comboIdArray}
     }).sort({ expireDate: -1 }).catch(e => {
+        console.log(e)
         return e
     })
     return filter;
