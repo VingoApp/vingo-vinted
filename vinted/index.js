@@ -32,7 +32,8 @@ function main() {
 
                         }
                     }
-                    await sendNotifs(new_articles)
+                    if (new_articles.length > 0)
+                        await sendNotifs(new_articles)
                 }
             }).catch(e => {
                 return e
