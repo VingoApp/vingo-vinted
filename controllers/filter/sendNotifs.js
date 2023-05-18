@@ -8,7 +8,6 @@ async function sendNotifs(comboList) {
         },
         body: { comboList }
     }).catch(e => {
-        console.error(e)
         return e
     })
 }
