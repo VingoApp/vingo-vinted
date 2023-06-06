@@ -9,10 +9,9 @@ const insertToDb = require("../controllers/filter/insertToDb");
 
 router.get("/combo", [passport.authenticate('jwt', { session: false }), rateLimit], async (req, res) => {
     console.log("✨ POST /filters/combo")
-    const { comboList, from, to } = req.query;
-    console.log(from , to)
+    const { comboList } = req.query;
     if (!comboList) return res.status(400).json({ success: false, msg: "Missing arguments" })
-    const filter = await getSpecificFromDb(comboList, from || 0, to || 20);
+    const filter = await getSpecificFromDb(comboList);
     if (!filter) return res.status(400).json({ success: false, msg: "Error while fetching data from DB" })
     return res.status(200).json(filter);
 })
